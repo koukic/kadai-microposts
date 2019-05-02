@@ -5,12 +5,29 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
-        <ul class="navbar-nav">
+      <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">Logout</li>
+            </ul>
+          </li>
+        <% else %>
           <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-          <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
-        </ul>
+          <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+      <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
     </div>
   </nav>
 </header>
