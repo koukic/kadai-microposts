@@ -15,7 +15,7 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item">Logout</li>
+              　<li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>
@@ -23,11 +23,6 @@
           <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
         <% end %>
       </ul>
-      <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
-            </ul>
     </div>
   </nav>
 </header>
