@@ -1,4 +1,4 @@
-　<% if logged_in? %>
+ <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
       <%= form_with(model: @micropost, local: true) do |f| %>
@@ -9,7 +9,7 @@
       <% end %>
     </aside>
     <div class="col-sm-8">
-      <%= render 'microposts/microposts', microposts: @microposts %>
+      <%= render 'microposts/microposts', microposts: @microposts%>
     </div>
   </div>
 <% else %>

@@ -1,0 +1,14 @@
+  <% if current_user.favorite?(micropost) %>
+    <%= form_with(model: current_user.favorites.find_by(micropost_id: micropost.id), local: true, method: :delete) do |f| %>
+      <%= hidden_field_tag :micropost_id, micropost.id %>
+      <%= f.submit 'Unlike', class: 'btn btn-danger btn-sm' %>
+      
+    <% end %>
+
+  <% else %>
+    <%= form_with(model: current_user.likes.build, local: true) do |f| %>
+      <%= hidden_field_tag :micropost_id, micropost.id %>
+      <%= f.submit 'like', class: 'btn btn-primary btn-sm' %>
+      
+    <% end %>
+  <% end %>
