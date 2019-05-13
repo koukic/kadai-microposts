@@ -36,7 +36,7 @@ end
   
   
   def favorite(other_micropost)
-      self.favorites.find_or_create_by(microp_id: other_micropost.id)
+      self.favorites.find_or_create_by(micropost_id: other_micropost.id)
   end
 
   def unfavorite(other_micropost)
